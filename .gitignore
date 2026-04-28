@@ -1,0 +1,27 @@
+# Build outputs
+build/
+out/
+cmake-build-*/
+*.obj
+*.o
+*.pdb
+*.ilk
+*.lib
+*.exp
+
+# Embedded zapret binaries (downloaded by CMake FetchContent)
+res/winws.exe
+res/cygwin1.dll
+res/WinDivert.dll
+res/WinDivert64.sys
+
+# IDE
+.vs/
+.vscode/
+*.user
+*.suo
+
+# OS
+Thumbs.db
+desktop.ini
+.DS_Store

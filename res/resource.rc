@@ -1,0 +1,73 @@
+#include "resource.h"
+#include <winres.h>
+
+/* ============================================================
+ * EMBEDDED ZAPRET BINARIES
+ * The resource compiler finds these via the /I flag set by CMake
+ * pointing to build/embed/ which contains the downloaded binaries
+ * ============================================================ */
+IDR_WINWS_EXE           RCDATA  "winws.exe"
+IDR_CYGWIN1_DLL         RCDATA  "cygwin1.dll"
+IDR_WINDIVERT_DLL       RCDATA  "WinDivert.dll"
+IDR_WINDIVERT64_SYS     RCDATA  "WinDivert64.sys"
+IDR_QUIC_INITIAL_BIN    RCDATA  "quic_initial_www_google_com.bin"
+IDR_TLS_CLIENTHELLO_BIN RCDATA  "tls_clienthello_www_google_com.bin"
+IDR_STUN_BIN            RCDATA  "stun.bin"
+
+/* ============================================================
+ * APPLICATION ICON
+ * ============================================================ */
+IDI_APP_ICON            ICON    "zapret.ico"
+
+/* ============================================================
+ * UAC MANIFEST - require administrator elevation
+ * ============================================================ */
+1 RT_MANIFEST "zapret.manifest"
+
+/* ============================================================
+ * MAIN MENU
+ * ============================================================ */
+IDR_MAIN_MENU MENU
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&Import Presets...",  IDM_FILE_IMPORT
+        MENUITEM "&Export Presets...",  IDM_FILE_EXPORT
+        MENUITEM SEPARATOR
+        MENUITEM "&Clean Custom Presets", IDM_FILE_CLEAN
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit",               IDM_FILE_EXIT
+    END
+END
+
+/* ============================================================
+ * VERSION INFORMATION
+ * ============================================================ */
+VS_VERSION_INFO VERSIONINFO
+    FILEVERSION     1,0,0,0
+    PRODUCTVERSION  1,0,0,0
+    FILEFLAGSMASK   VS_FFI_FILEFLAGSMASK
+    FILEFLAGS       0
+    FILEOS          VOS_NT_WINDOWS32
+    FILETYPE        VFT_APP
+    FILESUBTYPE     VFT2_UNKNOWN
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904B0"
+        BEGIN
+            VALUE "CompanyName",      "zapret-win-gui"
+            VALUE "FileDescription",  "Zapret DPI Bypass GUI"
+            VALUE "FileVersion",      "1.0.0.0"
+            VALUE "InternalName",     "zapret-gui"
+            VALUE "LegalCopyright",   "MIT License"
+            VALUE "OriginalFilename", "zapret-gui.exe"
+            VALUE "ProductName",      "Zapret GUI"
+            VALUE "ProductVersion",   "1.0.0.0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x0409, 1200
+    END
+END
